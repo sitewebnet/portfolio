@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Karathe | ICT & Data Analytics Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #4A44C6;
+            --secondary: #FF6584;
+            --dark: #0F0F1B;
+            --dark-light: #1A1A2E;
+            --light: #F5F5F7;
+            --gray: #8A8A9D;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --info: #2196F3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 15, 27, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Enhanced floating elements */
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 3%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 40%;
+            right: 8%;
+            animation-delay: 4s;
+        }
+
+        .floating-element:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .floating-element:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            top: 60%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        .floating-element:nth-child(6) {
+            width: 90px;
+            height: 90px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(7) {
+            width: 50px;
+            height: 50px;
+            top: 30%;
+            left: 25%;
+            animation-delay: 2.5s;
+        }
+
+        .floating-element:nth-child(8) {
+            width: 110px;
+            height: 110px;
+            top: 15%;
+            left: 40%;
+            animation-delay: 1.5s;
+        }
+
+        .floating-element:nth-child(9) {
+            width: 65px;
+            height: 65px;
+            top: 75%;
+            right: 25%;
+            animation-delay: 3.5s;
+        }
+
+        .floating-element:nth-child(10) {
+            width: 85px;
+            height: 85px;
+            top: 45%;
+            left: 15%;
+            animation-delay: 4.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            50% {
+                transform: translateY(-10px) translateX(-5px);
+            }
+            75% {
+                transform: translateY(-15px) translateX(8px);
+            }
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--dark-light);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3 i {
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-percentage {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* CV Section */
+        .cv-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 27, 0.95);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .cv-section.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cv-container {
+            background: var(--dark-light);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .cv-section.active .cv-container {
+            transform: scale(1);
+        }
+
+        .cv-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .cv-close:hover {
+            color: var(--primary);
+        }
+
+        .cv-section-content {
+            margin-bottom: 3rem;
+        }
+
+        .cv-section-content:last-child {
+            margin-bottom: 0;
+        }
+
+        .cv-section-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .cv-section-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-subtitle {
+            color: var(--gray);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .timeline-description {
+            color: var(--gray);
+        }
+
+        .education-list, .certification-list {
+            list-style-type: none;
+        }
+
+        .education-list li, .certification-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .education-list li::before, .certification-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .reference-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reference-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .reference-position {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .reference-contact {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--dark-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(108, 99, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-overlay a:hover {
+            transform: scale(1.2);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: rgba(108, 99, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-bg {
+                width: 100%;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+                opacity: 0.3;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .cv-container {
+                padding: 2rem;
+            }
+
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cv-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Peter<span>.</span></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#" id="view-cv-btn">View CV</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Peter Karathe</span><br>ICT & Data Analytics Specialist</h1>
+                <p>I create amazing digital experiences with modern technologies and innovative solutions. Combining technology and data to support smart and efficient decision making.</p>
+                <div>
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#" id="cv-btn" class="btn" style="background: var(--secondary); margin-left: 10px;">View CV</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creating Digital Solutions That Matter</h3>
+                    <p>I'm a passionate ICT and data analytics professional with practical experience in tech support, system management, and using data to solve problems. Skilled at helping businesses work better by combining technology and data to support smart and efficient decision making.</p>
+                    <p>With a background in Mathematics and Computer Science, I bring a comprehensive approach to every project I work on, ensuring both technical excellence and business value.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+                <div class="about-image">
+                    <div class="image-container">
+                        <!-- Replace with your actual image -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Peter Karathe">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Technical Support & Troubleshooting</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95" style="background: var(--success);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Network Administration</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" style="background: var(--info);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">System Maintenance</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90" style="background: var(--primary);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Database Management</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" style="background: var(--warning);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Data Analytics</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">R, Stata, SQL & Excel</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90" style="background: var(--success);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" style="background: var(--info);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Tableau / Power BI</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" style="background: var(--primary);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Cleaning & Preparation</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88" style="background: var(--warning);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Professional Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">User Support & Training</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92" style="background: var(--success);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Documentation & Reporting</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88" style="background: var(--info);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cybersecurity Awareness</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" style="background: var(--primary);"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">IT Infrastructure Management</span>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82" style="background: var(--warning);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid" id="projects-container">
+                <!-- Project cards will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>ipeterkg@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>0795513141</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Nakuru, Kenya</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/sitewebnet</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/sitewebnet" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@specinfoke" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">© 2025 Peter Karathe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- CV Section (Hidden by default) -->
+    <div class="cv-section" id="cv-section">
+        <div class="cv-container">
+            <button class="cv-close" id="cv-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="section-title">
+                <h2>My CV</h2>
+            </div>
+            
+            <!-- Work Experience -->
+            <div class="cv-section-content">
+                <h3>Work Experience</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024-2025</div>
+                        <div class="timeline-title">ICT Product Sales</div>
+                        <div class="timeline-subtitle">SPEC COMPUTERS, Njoro, Nakuru</div>
+                        <div class="timeline-description">
+                            <p>Developed and maintained relationships with clients to promote and sell ICT products, ensuring they aligned with customer needs and business goals.</p>
+                            <p>Built and kept client relationships to sell ICT products, ensured solutions fit their needs and goals, and designed the business website.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">December 2023</div>
+                        <div class="timeline-title">Team Leader & Data Capturer</div>
+                        <div class="timeline-subtitle">KNEC, Limuru, Kiambu</div>
+                        <div class="timeline-description">
+                            <p>Led a team in capturing and verifying candidate registration and examination data for the Kenya National Examinations Council, ensuring accuracy and compliance with strict timelines.</p>
+                            <p>Successfully coordinated a team of data clerks, achieving 100% data accuracy and meeting all submission deadlines ahead of schedule during a high-volume national data entry period.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022-2024</div>
+                        <div class="timeline-title">ICT Technician & Inventory Assistant</div>
+                        <div class="timeline-subtitle">Aquamist Ltd, Nakuru</div>
+                        <div class="timeline-description">
+                            <p>Provided ICT support and maintained equipment while assisting with warehouse stocktaking and inventory records.</p>
+                            <p>Improved system reliability and boosted inventory accuracy through efficient tech support and precise stock control.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021-2022</div>
+                        <div class="timeline-title">ICT Technician</div>
+                        <div class="timeline-subtitle">NET COMPUTERS, Bahati, Nakuru</div>
+                        <div class="timeline-description">
+                            <p>Installed, configured, and maintained computer systems, software, and peripherals while providing user support.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">May-August 2019</div>
+                        <div class="timeline-title">ICT Attachee</div>
+                        <div class="timeline-subtitle">NJORO CANNING LTD, Njoro, Nakuru</div>
+                        <div class="timeline-description">
+                            <p>Responsibilities involved providing ICT support, system upgrades, network and telephone maintenance, and ensuring system security.</p>
+                            <p>Achievements included assisting in the new company website development, learning Sage ERP, and improving digital advertising skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="cv-section-content">
+                <h3>Education</h3>
+                <ul class="education-list">
+                    <li>
+                        <strong>BSc. Mathematics and Computer Science (Statistics Option)</strong><br>
+                        Technical University of Mombasa<br>
+                        Graduated: 2021
+                    </li>
+                    <li>
+                        <strong>Kenya Certificate of Secondary Education (KCSE)</strong><br>
+                        Njoro Boys' High School<br>
+                        Grade: A - (2015)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Certifications -->
+            <div class="cv-section-content">
+                <h3>Certifications</h3>
+                <ul class="certification-list">
+                    <li>Cyber Security - CYBRARY FOUNDATION (April 16, 2025)</li>
+                    <li>Fundamentals of Digital Marketing - GOOGLE FOUNDATION (Oct 4, 2024)</li>
+                    <li>Introduction to Cyber Security - hp FOUNDATION (Feb 12, 2024)</li>
+                    <li>IT for Business Success - hp FOUNDATION (Feb 12, 2024)</li>
+                    <li>Networking Essentials - hp FOUNDATION (Feb 12, 2024)</li>
+                </ul>
+            </div>
+
+            <!-- Languages -->
+            <div class="cv-section-content">
+                <h3>Languages</h3>
+                <div class="skills">
+                    <div class="skill" style="display: inline-block; background: rgba(108, 99, 255, 0.1); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.9rem; border: 1px solid rgba(108, 99, 255, 0.3); margin-right: 10px; margin-bottom: 10px;">English (Professional)</div>
+                    <div class="skill" style="display: inline-block; background: rgba(108, 99, 255, 0.1); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.9rem; border: 1px solid rgba(108, 99, 255, 0.3); margin-right: 10px; margin-bottom: 10px;">Kiswahili (Fluent)</div>
+                    <div class="skill" style="display: inline-block; background: rgba(108, 99, 255, 0.1); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.9rem; border: 1px solid rgba(108, 99, 255, 0.3); margin-right: 10px; margin-bottom: 10px;">Spanish (Learning)</div>
+                </div>
+            </div>
+
+            <!-- References -->
+            <div class="cv-section-content">
+                <h3>References</h3>
+                <div class="references-grid">
+                    <div class="reference-card">
+                        <div class="reference-name">Mr. Kennedy Muriungi</div>
+                        <div class="reference-position">Warehouse Manager, Aquamist Ltd Nakuru Depot</div>
+                        <div class="reference-contact">
+                            Phone: 0718240641<br>
+                            Email: kennedymureithi9@gmail.com
+                        </div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Mr. Jp Maswai</div>
+                        <div class="reference-position">KNEC Official</div>
+                        <div class="reference-contact">
+                            Phone: 0721585614<br>
+                            Email: jpmaswai@yahoo.com
+                        </div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Mr. John Mwangi</div>
+                        <div class="reference-position">Manager, Net Computers</div>
+                        <div class="reference-contact">
+                            Phone: 0723158172<br>
+                            Email: mwangi1162@gmail.com
+                        </div>
+                    </div>
+                    <div class="reference-card">
+                        <div class="reference-name">Mr. Joseph Matiba</div>
+                        <div class="reference-position">ICT Assistant Manager, Njoro Canning Ltd</div>
+                        <div class="reference-contact">
+                            Phone: 0708260775<br>
+                            Email: matibajoseph@gmail.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample project data - replace with your actual projectss
+        const projects = [
+            {
+                id: 1,
+                title: "Spec Computers Website",
+                description: "A professional website for Spec Computers Njoro, showcasing their products and services with modern design and responsive layout.",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+                github: "https://github.com/sitewebnet/spec",
+                demo: "#"
+            },
+            {
+                id: 2,
+                title: "Dan Poultry Website",
+                description: "Business website for Kimchick Ukulima Ventures, specializing in chick sales with e-commerce functionality.",
+                image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Web Development", "E-commerce", "Business"],
+                github: "https://github.com/sitewebnet/danpoultry",
+                demo: "#"
+            },
+            {
+                id: 3,
+                title: "Answerlytica - Online Jobs Platform",
+                description: "A comprehensive platform connecting job seekers with employers, featuring job listings and application management.",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80",
+                tags: ["Web Platform", "Job Portal", "Full Stack"],
+                github: "https://github.com/sitewebnet/answerlytica",
+                demo: "#"
+            },
+            {
+                id: 4,
+                title: "Snakes & Ladders Game",
+                description: "Web-based implementation of the classic Snakes and Ladders game with interactive gameplay and modern UI.",
+                image: "https://images.unsplash.com/photo-1635863138275-d9b33299680a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["JavaScript", "Game Development", "Web App"],
+                github: "https://github.com/sitewebnet/snakes-ladders",
+                demo: "#"
+            },
+            {
+                id: 5,
+                title: "Aqua Balanites Website",
+                description: "Corporate website for Aqua Balanites water production company, featuring product information and company details.",
+                image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Corporate Website", "Water Industry", "Business"],
+                github: "https://github.com/sitewebnet/aqua",
+                demo: "#"
+            },
+            {
+                id: 6,
+                title: "MovieBot - Telegram Bot",
+                description: "Telegram bot that helps users find and download movies with search functionality and user-friendly interface.",
+                image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+                tags: ["Python", "Telegram Bot", "API Integration"],
+                github: "https://github.com/sitewebnet/moviebot",
+                demo: "#"
+            },
+            {
+                id: 7,
+                title: "Matplotlib Animation",
+                description: "Creative data visualization project creating an animated cloud raining numbers using Python's Matplotlib library.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Python", "Matplotlib", "Data Visualization"],
+                github: "https://github.com/sitewebnet/matplotlib",
+                demo: "#"
+            },
+            {
+                id: 8,
+                title: "Appointment Booking Bot",
+                description: "Telegram bot for business appointment scheduling with calendar integration and reminder features.",
+                image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Telegram Bot", "Python", "Business Automation"],
+                github: "https://github.com/sitewebnet/appointment-booking",
+                demo: "#"
+            },
+            {
+                id: 9,
+                title: "Fayl - Social Media Downloader",
+                description: "Telegram bot that enables users to download MP4 files from YouTube, TikTok, and other social media platforms.",
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80",
+                tags: ["Python", "Telegram Bot", "API Integration"],
+                github: "https://github.com/sitewebnet/fayl",
+                demo: "#"
+            },
+            {
+                id: 10,
+                title: "Heart Disease Prediction",
+                description: "Machine learning project using decision trees to predict heart disease based on patient features and medical data.",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Python", "Machine Learning", "Decision Trees"],
+                github: "https://github.com/sitewebnet/Heart-Disease-Decision-Tree",
+                demo: "#"
+            },
+            {
+                id: 11,
+                title: "Animated Data Visualization",
+                description: "Advanced data visualization projects featuring animated charts and interactive data representations.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Python", "Data Visualization", "Animation"],
+                github: "https://github.com/sitewebnet/Data-Visualization-in-annimation",
+                demo: "#"
+            },
+            {
+                id: 12,
+                title: "Multiple Linear Regression",
+                description: "Statistical analysis project examining relationships between biking, smoking, and heart disease frequency.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["R", "Statistics", "Linear Regression"],
+                github: "https://github.com/sitewebnet/Multiple-linear-regression",
+                demo: "#"
+            },
+            {
+                id: 13,
+                title: "Titanic Data Analysis",
+                description: "Comprehensive data analysis of Titanic passenger data to understand demographics and survival patterns.",
+                image: "https://images.unsplash.com/photo-1598974357801-cbca100e65d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Data Analysis", "Python", "Pandas"],
+                github: "https://github.com/sitewebnet/Titanic",
+                demo: "#"
+            },
+            {
+                id: 14,
+                title: "Linear Regression in R",
+                description: "Educational project demonstrating linear regression concepts using R with practical examples and visualizations.",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["R", "Linear Regression", "Statistics"],
+                github: "https://github.com/sitewebnet/Linear-Regression",
+                demo: "#"
+            },
+            {
+                id: 15,
+                title: "Phone Networks Analysis",
+                description: "Data analysis project examining usage patterns across different phone networks and user demographics.",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                tags: ["Data Analysis", "Python", "Telecom"],
+                github: "https://github.com/sitewebnet/Phone-Networks-analysis",
+                demo: "#"
+            }
+        ];        
+
+        // DOM Elements
+        const projectsContainer = document.getElementById('projects-container');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const contactForm = document.getElementById('contactForm');
+        const skillProgresses = document.querySelectorAll('.skill-progress');
+        const cvSection = document.getElementById('cv-section');
+        const cvBtn = document.getElementById('cv-btn');
+        const viewCvBtn = document.getElementById('view-cv-btn');
+        const cvClose = document.getElementById('cv-close');
+
+        // Track if skills have been animated
+        let skillsAnimated = false;
+
+        // Generate project cards
+        function generateProjectCards() {
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-card animate-on-scroll';
+                
+                projectCard.innerHTML = `
+                    <div class="project-image">
+                        <img src="${project.image}" alt="${project.title}">
+                        <div class="project-overlay">
+                            <a href="${project.github}" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="${project.demo}" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>${project.title}</h3>
+                        <p>${project.description}</p>
+                        <div class="project-tags">
+                            ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                projectsContainer.appendChild(projectCard);
+            });
+        }
+
+        // Animate skills on scroll
+        function animateSkills() {
+            if (skillsAnimated) return;
+            
+            skillProgresses.forEach(progress => {
+                const width = progress.getAttribute('data-width');
+                // Reset width to 0 first
+                progress.style.width = '0%';
+                
+                // Animate to target width after a small delay
+                setTimeout(() => {
+                    progress.style.width = width + '%';
+                    progress.style.transition = 'width 1.5s ease-in-out';
+                }, 100);
+            });
+            
+            skillsAnimated = true;
+        }
+
+        // Toggle mobile menu
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Show CV section
+        function showCV() {
+            cvSection.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Hide CV section
+        function hideCV() {
+            cvSection.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // CV button events
+        cvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showCV();
+        });
+
+        viewCvBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showCV();
+        });
+
+        cvClose.addEventListener('click', hideCV);
+
+        // Close CV when clicking outside
+        cvSection.addEventListener('click', (e) => {
+            if (e.target === cvSection) {
+                hideCV();
+            }
+        });
+
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+
+            // Animate skills when in view
+            const skillsSection = document.getElementById('skills');
+            const skillsTop = skillsSection.getBoundingClientRect().top;
+            
+            if (skillsTop < windowHeight - 100) {
+                animateSkills();
+            }
+        }
+
+        // Contact form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '15px 5%';
+                nav.style.background = 'rgba(15, 15, 27, 0.98)';
+            } else {
+                nav.style.padding = '20px 5%';
+                nav.style.background = 'rgba(15, 15, 27, 0.95)';
+            }
+            
+            checkScroll();
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            generateProjectCards();
+            checkScroll();
+            
+            // Initialize skill bars at 0%
+            skillProgresses.forEach(progress => {
+                progress.style.width = '0%';
+            });
+        });
+    </script>
+</body>
+</html>
