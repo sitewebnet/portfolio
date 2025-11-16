@@ -646,22 +646,31 @@
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
-
         .project-image {
             height: 200px;
             overflow: hidden;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-light), var(--dark));
+            padding: 15px; /* Adds breathing room around images */
         }
-
+        
         .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: all 0.5s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
+        
         .project-card:hover .project-image img {
-            transform: scale(1.1);
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .project-overlay {
@@ -894,6 +903,14 @@
             .references-grid {
                 grid-template-columns: 1fr;
             }
+            .project-image {
+                height: 180px;
+                padding: 12px;
+            }
+            
+            .projects-grid {
+                gap: 1.5rem;
+            }           
         }
 
         @media (max-width: 576px) {
@@ -908,7 +925,18 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
-
+            .project-image {
+                height: 160px;
+                padding: 10px;
+            }
+            
+            .project-content {
+                padding: 1.2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
             .cv-container {
                 padding: 1.5rem;
             }
@@ -1351,7 +1379,7 @@
                 id: 1,
                 title: "Spec Computers Website",
                 description: "A professional website for Spec Computers Njoro, showcasing their products and services with modern design and responsive layout.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                image: "images/spec.webp",
                 tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
                 github: "https://github.com/sitewebnet/spec",
                 demo: "#"
@@ -1360,7 +1388,7 @@
                 id: 2,
                 title: "Dan Poultry Website",
                 description: "Business website for Kimchick Ukulima Ventures, specializing in chick sales with e-commerce functionality.",
-                image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                image: "images/kim.webp",
                 tags: ["Web Development", "E-commerce", "Business"],
                 github: "https://github.com/sitewebnet/danpoultry",
                 demo: "#"
@@ -1369,7 +1397,7 @@
                 id: 3,
                 title: "Answerlytica - Online Jobs Platform",
                 description: "A comprehensive platform connecting job seekers with employers, featuring job listings and application management.",
-                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80",
+                image: "images/answer.webp",
                 tags: ["Web Platform", "Job Portal", "Full Stack"],
                 github: "https://github.com/sitewebnet/answerlytica",
                 demo: "#"
@@ -1378,7 +1406,7 @@
                 id: 4,
                 title: "Snakes & Ladders Game",
                 description: "Web-based implementation of the classic Snakes and Ladders game with interactive gameplay and modern UI.",
-                image: "https://images.unsplash.com/photo-1635863138275-d9b33299680a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                image: "images/snakes.webp",
                 tags: ["JavaScript", "Game Development", "Web App"],
                 github: "https://github.com/sitewebnet/snakes-ladders",
                 demo: "#"
@@ -1387,7 +1415,7 @@
                 id: 5,
                 title: "Aqua Balanites Website",
                 description: "Corporate website for Aqua Balanites water production company, featuring product information and company details.",
-                image: "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                image: "images/aqua.webp",
                 tags: ["Corporate Website", "Water Industry", "Business"],
                 github: "https://github.com/sitewebnet/aqua",
                 demo: "#"
@@ -1396,7 +1424,7 @@
                 id: 6,
                 title: "MovieBot - Telegram Bot",
                 description: "Telegram bot that helps users find and download movies with search functionality and user-friendly interface.",
-                image: "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+                image: "images/movie.webp",
                 tags: ["Python", "Telegram Bot", "API Integration"],
                 github: "https://github.com/sitewebnet/moviebot",
                 demo: "#"
@@ -1414,7 +1442,7 @@
                 id: 8,
                 title: "Appointment Booking Bot",
                 description: "Telegram bot for business appointment scheduling with calendar integration and reminder features.",
-                image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+                image: "images/appointment.webp",
                 tags: ["Telegram Bot", "Python", "Business Automation"],
                 github: "https://github.com/sitewebnet/appointment-booking",
                 demo: "#"
@@ -1423,7 +1451,7 @@
                 id: 9,
                 title: "Fayl - Social Media Downloader",
                 description: "Telegram bot that enables users to download MP4 files from YouTube, TikTok, and other social media platforms.",
-                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80",
+                image: "images/spec.webp",
                 tags: ["Python", "Telegram Bot", "API Integration"],
                 github: "https://github.com/sitewebnet/fayl",
                 demo: "#"
@@ -1643,4 +1671,5 @@
         });
     </script>
 </body>
+
 </html>
